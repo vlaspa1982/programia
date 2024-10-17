@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ProgramiaMVC.Models.Zakaznik>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID Zákazníka</th>
+            <th>Jméno</th>
+            <th>Email</th>
+            <th>Akce</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model == null || !Model.Any())
+        {
+            <p>Žádné objednávky nebyly nalezeny.</p>
+        }
+        else
+        {
+
+            @foreach (var zakaznik in Model)
+            {
+                <tr>
+                    <td>@zakaznik.Id</td>
+                    <td>@zakaznik.Jmeno</td>
+                    <td>@zakaznik.Email</td>
+                    <td>
+                        <a asp-action="EditZakaznik" asp-route-id="@zakaznik.Id">Upravit</a>
+                        <a asp-action="DeleteZakaznik" asp-route-id="@zakaznik.Id">Smazat</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

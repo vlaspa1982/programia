@@ -1,0 +1,26 @@
+﻿@model IEnumerable<ProgramiaMVC.Models.Produkt>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Název produktu</th>
+            <th>Popis produktu</th>
+            <th>Cena</th>
+            <th>Akce</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var produkt in Model)
+        {
+            <tr>
+                <td>@produkt.NazevProduktu</td>
+                <td>@produkt.PopisProduktu</td>
+                <td>@produkt.Cena.ToString("C")</td>
+                <td>
+                    <a asp-action="EditProdukt" asp-route-id="@produkt.Id" class="btn btn-primary">Editovat</a>
+                    <a asp-action="DeleteProdukt" asp-route-id="@produkt.Id" class="btn btn-danger">Smazat</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

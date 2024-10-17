@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Hlavní stránka";
+}
+
+<h1>Hlavní stránka</h1>
+
+<h2>Produkty</h2>
+<!-- Tlačítko pro přidání nového produktu -->
+<a asp-action="CreateProdukt" class="btn btn-success">Přidat nový produkt</a>
+<div>
+    @await Html.PartialAsync("Produkty/_ProduktyPartial")
+</div>
+
+

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<ProgramiaMVC.Models.Objednavka>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID Objednávky</th>
+            <th>Datum</th>
+            <th>Celková Cena</th>
+            <th>Akce</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model == null || !Model.Any())
+        {
+            <p>Žádné objednávky nebyly nalezeny.</p>
+        }
+        else
+        {
+            @foreach (var objednavka in Model)
+            {
+                <tr>
+                    <td>@objednavka.Id</td>
+                    <td>@objednavka.DatumObjednavky.ToString("dd.MM.yyyy")</td>
+
+                    <td>
+                        <a asp-action="EditObjednavka" asp-route-id="@objednavka.Id">Upravit</a>
+                        <a asp-action="DeleteObjednavka" asp-route-id="@objednavka.Id">Smazat</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

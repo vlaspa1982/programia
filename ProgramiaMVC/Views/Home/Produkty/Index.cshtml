@@ -1,0 +1,13 @@
+﻿@model IEnumerable<ProgramiaMVC.Models.Produkt>
+
+@{
+    ViewData["Title"] = "Produkty";
+}
+
+<h1>Produkty</h1>
+
+<a asp-action="CreateProdukt" class="btn btn-success">Přidat nový produkt</a>
+
+<div>
+    @await Html.PartialAsync("Produkty/_ProduktyPartial", Model)
+</div>

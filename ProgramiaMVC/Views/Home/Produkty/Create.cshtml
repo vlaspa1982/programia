@@ -1,0 +1,42 @@
+﻿@model ProgramiaMVC.Models.Produkt
+
+@{
+    ViewData["Title"] = "Přidat nový produkt";
+}
+
+<h1>Přidat nový produkt</h1>
+
+<form asp-action="CreateProdukt" method="post">
+    <div class="form-group">
+        <label asp-for="NazevProduktu" class="control-label">Název produktu</label>
+        <input asp-for="NazevProduktu" class="form-control" />
+        <span asp-validation-for="NazevProduktu" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PopisProduktu" class="control-label">Popis produktu</label>
+        <textarea asp-for="PopisProduktu" class="form-control"></textarea>
+        <span asp-validation-for="PopisProduktu" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Cena" class="control-label">Cena</label>
+        <input asp-for="Cena" class="form-control" />
+        <span asp-validation-for="Cena" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SkladovaZasoba" class="control-label">Počet kusů skladem</label>
+        <input asp-for="SkladovaZasoba" class="form-control" />
+        <span asp-validation-for="SkladovaZasoba" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Uložit</button>
+    <a asp-action="Index" class="btn btn-secondary">Zpět</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
